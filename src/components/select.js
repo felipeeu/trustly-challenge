@@ -10,7 +10,6 @@ const SelectCard = styled.select`
 `;
 const Label = styled.span`
 	padding: 0 10px;
-	font-family: Open Sans;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 12px;

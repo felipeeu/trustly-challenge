@@ -12,7 +12,6 @@ const Detail = styled.div`
 	width: 297px;
 `;
 const Title = styled.p`
-	font-family: Open Sans;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 20px;
@@ -21,7 +20,6 @@ const Title = styled.p`
 	color: #000000;
 `;
 const Price = styled.p`
-	font-family: Open Sans;
 	font-style: normal;
 	font-weight: 600;
 	font-size: 21px;
@@ -49,7 +47,7 @@ const CardProduct = ({ title, price, image }) => {
 				<Select label="Quantity" values={[ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]} />
 				<Price>${price}</Price>
 			</Detail>
-			<ButtonCard />
+			<ButtonCard label={"Add to Card"} />
 		</Card>
 	);
 };
