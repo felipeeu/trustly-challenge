@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import flags from '../../assets/images/bank-flags.png';
+import cards from '../../assets/images/card-flags.png';
+import apple from '../../assets/images/apple-flag.png';
 
 const Details = styled.div`
 	position: absolute;
@@ -72,34 +75,77 @@ const Price = styled.span`
 	color: #000000;
 `;
 
+const SelectPayment = styled.div`
+	height: 75px;
+	margin-left: 38px;
+	margin-right: 30px;
+	margin-bottom: 15px;
+	background: #ffffff;
+	border: 1px solid #5dac50;
+	border-radius: 10.8766px;
+	cursor: pointer;
+`;
+const TextPayment = styled.span`
+	font-size: 16px;
+	line-height: 22px;
+	color: #535353;
+`;
+
+const BankFlags = styled.img``;
+
+const TextDetails = () => (
+	<Container>
+		<Total>
+			<CartTotal>Cart Total</CartTotal>
+			<Title>SS Sneaker</Title>
+			<Description>X1 green Size 41</Description>
+			<br />
+			<Description>item # 1232131</Description>
+		</Total>
+		<DeliveryWraper>
+			<Delivery>Delivery Details</Delivery>
+			<DeliveryDetails>Felipe Domingues</DeliveryDetails>
+			<br />
+			<DeliveryDetails>Phone no : 2123123123</DeliveryDetails>
+			<br />
+			<DeliveryDetails>Address: rels st ,423900234</DeliveryDetails>
+			<br />
+			<CostWrapper>
+				<CostDivider>
+					<TotalCost>Total Cost</TotalCost>
+					<DeliveryDetails>Delivery included</DeliveryDetails>
+				</CostDivider>
+				<Price>$100</Price>
+			</CostWrapper>
+		</DeliveryWraper>
+	</Container>
+);
+
+const PaymentDetails = () => (
+	<div>
+		<CartTotal>Select Your Payment Method</CartTotal>
+		<SelectPayment>
+			<div>
+				<TextPayment>Online Banking</TextPayment>
+				<BankFlags src={flags} />
+			</div>
+		</SelectPayment>
+		<SelectPayment>
+			<TextPayment>Card Payment</TextPayment>
+			<BankFlags src={cards} />
+		</SelectPayment>
+		<SelectPayment>
+			<TextPayment>Apple Pay</TextPayment>
+			<BankFlags src={apple} />
+		</SelectPayment>
+	</div>
+);
+
 const DetailsCheckout = () => {
 	return (
 		<Details>
-			<Container>
-				<Total>
-					<CartTotal>Cart Total</CartTotal>
-					<Title>SS Sneaker</Title>
-					<Description>X1 green Size 41</Description>
-					<br />
-					<Description>item # 1232131</Description>
-				</Total>
-				<DeliveryWraper>
-					<Delivery>Delivery Details</Delivery>
-					<DeliveryDetails>Felipe Domingues</DeliveryDetails>
-					<br />
-					<DeliveryDetails>Phone no : 2123123123</DeliveryDetails>
-					<br />
-					<DeliveryDetails>Address: rels st ,423900234</DeliveryDetails>
-					<br />
-					<CostWrapper>
-						<CostDivider>
-							<TotalCost>Total Cost</TotalCost>
-							<DeliveryDetails>Delivery included</DeliveryDetails>
-						</CostDivider>
-						<Price>$100</Price>
-					</CostWrapper>
-				</DeliveryWraper>
-			</Container>
+			<TextDetails />
+			<PaymentDetails />
 		</Details>
 	);
 };
