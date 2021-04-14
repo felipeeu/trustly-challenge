@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 
-const Button = styled.button`
+export const Button = styled.button`
 	background: #6b8067;
 	border-radius: 4.5px;
 	height: 42px;

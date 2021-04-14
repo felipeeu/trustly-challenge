@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import flags from '../../assets/images/bank-flags.png';
 import cards from '../../assets/images/card-flags.png';
 import apple from '../../assets/images/apple-flag.png';
-import Button from '../button';
+import Button from './button';
 
 const Details = styled.div`
 	min-width: 730px;
@@ -128,7 +128,7 @@ const TextDetails = ({ data }) => (
 					<TotalCost>Total Cost</TotalCost>
 					<DeliveryDetails>Delivery included</DeliveryDetails>
 				</CostDivider>
-				<Price>${data.price}</Price>
+				<Price>${parseInt(data.quantity) * parseFloat(data.price)}</Price>
 			</CostWrapper>
 		</DeliveryWraper>
 	</Container>
