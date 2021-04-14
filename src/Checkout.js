@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import CheckoutDetails from './components/checkout/details';
 import LineCheckout from './components/checkout/line';
 import ImageCheckout from './components/checkout/image';
+import { useHistory } from 'react-router-dom';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -10,6 +11,10 @@ const Wrapper = styled.div`
 `;
 
 const Checkout = ({ checkoutData }) => {
+	const history = useHistory();
+	if (Object.keys(checkoutData).length === 0) {
+		history.push('/');
+	}
 	return (
 		<Fragment>
 			<LineCheckout />
