@@ -5,9 +5,7 @@ import apple from '../../assets/images/apple-flag.png';
 import Button from '../button';
 
 const Details = styled.div`
-
-	max-width: 730px;
-
+	min-width: 730px;
 	background: #f7f7f7;
 	border-radius: 11px;
 `;
@@ -36,6 +34,7 @@ const Description = styled.span`
 	font-size: 16px;
 	line-height: 25px;
 	color: #a5a5a5;
+	padding-left: 10px;
 `;
 
 const DeliveryWraper = styled.div`text-align: left;`;
@@ -105,14 +104,16 @@ const ButtonContinueWrapper = styled.div`
 	margin: 24px 0;
 `;
 
-const TextDetails = () => (
+const TextDetails = ({ data }) => (
 	<Container>
 		<Total>
 			<CartTotal>Cart Total</CartTotal>
-			<Title>SS Sneaker</Title>
-			<Description>X1 green Size 41</Description>
+			<Title>{data.description}</Title>
+			<Description>x{data.quantity}</Description>
+			<Description>{data.color}</Description>
+			<Description>Size {data.size}</Description>
 			<br />
-			<Description>item # 1232131</Description>
+			<Description>Item {`#${data.id}`}</Description>
 		</Total>
 		<DeliveryWraper>
 			<Delivery>Delivery Details</Delivery>
@@ -127,7 +128,7 @@ const TextDetails = () => (
 					<TotalCost>Total Cost</TotalCost>
 					<DeliveryDetails>Delivery included</DeliveryDetails>
 				</CostDivider>
-				<Price>$100</Price>
+				<Price>${data.price}</Price>
 			</CostWrapper>
 		</DeliveryWraper>
 	</Container>
@@ -160,10 +161,10 @@ const PaymentDetails = () => (
 	</div>
 );
 
-const DetailsCheckout = () => {
+const DetailsCheckout = ({ checkoutData }) => {
 	return (
 		<Details>
-			<TextDetails />
+			<TextDetails data={checkoutData} />
 			<PaymentDetails />
 		</Details>
 	);

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
 const Button = styled.button`
 	background: #6b8067;
@@ -14,7 +15,17 @@ const Button = styled.button`
 `;
 
 const ButtonCard = ({ label, filterById, id, size, quantity }) => {
-	return <Button onClick={() => filterById(id, size, quantity)}>{label}</Button>;
+	const history = useHistory();
+	return (
+		<Button
+			onClick={() => {
+				history.push('/checkout');
+				filterById(id, size, quantity);
+			}}
+		>
+			{label}
+		</Button>
+	);
 };
 
 export default ButtonCard;

@@ -6,9 +6,9 @@ const Image = styled.div`
 	border-radius: 11px;
 `;
 
-const ImageCheckout = () => {
+const ImageCheckout = ({image}) => {
 	return (
-		<Image src="" />
+		<Image src={image} />
 	);
 };
 

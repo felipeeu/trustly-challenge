@@ -9,13 +9,13 @@ const Wrapper = styled.div`
 	justify-content: space-evenly;
 `;
 
-const Checkout = () => {
+const Checkout = ({ checkoutData }) => {
 	return (
 		<Fragment>
 			<LineCheckout />
 			<Wrapper>
-				<ImageCheckout />
-				<CheckoutDetails />
+				<ImageCheckout image={checkoutData.maxresURL} />
+				<CheckoutDetails checkoutData={checkoutData} />
 			</Wrapper>
 		</Fragment>
 	);
