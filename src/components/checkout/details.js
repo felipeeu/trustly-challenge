@@ -5,15 +5,11 @@ import apple from '../../assets/images/apple-flag.png';
 import Button from '../button';
 
 const Details = styled.div`
-	position: absolute;
-	left: 44.72%;
-	right: 7.16%;
-	top: 27.5%;
-	bottom: 0%;
+
 	max-width: 730px;
 
 	background: #f7f7f7;
-	border-radius: 10.8766px;
+	border-radius: 11px;
 `;
 const Container = styled.div`
 	display: flex;
