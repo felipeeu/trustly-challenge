@@ -6,8 +6,8 @@ const HomeHeader = styled.div`
 	background: #f1f1f1;
 `;
 
-const Header = () => {
-	return <HomeHeader>Sneakers</HomeHeader>;
+const Header = ({label}) => {
+	return <HomeHeader>{label}</HomeHeader>;
 };
 
 export default Header;
