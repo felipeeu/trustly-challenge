@@ -31,7 +31,6 @@ const Price = styled.p`
 `;
 
 const Card = styled.div`
-	
 	width: 297px;
 	height: 373px;
 	left: 0.9px;
@@ -46,8 +45,8 @@ const CardProduct = ({ title, price, image }) => {
 			<Image src={image} />
 			<Detail>
 				<Title>{title}</Title>
-				<Select label="Size" />
-				<Select label="Quantity" />
+				<Select label="Size" values={[ '41', '42', '43', '44' ]} />
+				<Select label="Quantity" values={[ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]} />
 				<Price>${price}</Price>
 			</Detail>
 			<ButtonCard />

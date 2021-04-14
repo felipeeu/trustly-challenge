@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import styled from 'styled-components';
 
 const SelectCard = styled.select`
@@ -9,6 +9,7 @@ const SelectCard = styled.select`
 	border-radius: 25.2271px;
 `;
 const Label = styled.span`
+	padding: 0 10px;
 	font-family: Open Sans;
 	font-style: normal;
 	font-weight: normal;
@@ -19,11 +20,18 @@ const Label = styled.span`
 	color: #8d8d8d;
 `;
 
-const Select = ({label}) => (
-	<Fragment>
-		<Label>{label}</Label>
-		<SelectCard id="checkTag" value="selected" onChange={(e) => console.log(e)} />
-	</Fragment>
-);
+const Select = ({ label, values }) => {
+	const [ valueSelect, setValue ] = useState(null);
+	return (
+		<Fragment>
+			<Label>{label}</Label>
+			<SelectCard id="checkTag" value={valueSelect} onChange={(e) => setValue(e.target.value)}>
+				{values.map((value, index) => {
+					return <option key={index}>{value}</option>;
+				})}
+			</SelectCard>
+		</Fragment>
+	);
+};
 
 export default Select;
