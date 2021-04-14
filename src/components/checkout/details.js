@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import flags from '../../assets/images/bank-flags.png';
 import cards from '../../assets/images/card-flags.png';
 import apple from '../../assets/images/apple-flag.png';
+import Button from '../button';
 
 const Details = styled.div`
 	position: absolute;
@@ -85,13 +86,28 @@ const SelectPayment = styled.div`
 	border-radius: 10.8766px;
 	cursor: pointer;
 `;
+const ButtonWrapper = styled.div`
+	display: flex;
+	justify-content: space-between;
+`;
 const TextPayment = styled.span`
+	margin-left: 30px;
+	margin-top: 28px;
 	font-size: 16px;
 	line-height: 22px;
 	color: #535353;
 `;
 
-const BankFlags = styled.img``;
+const BankFlags = styled.img`
+	margin-right: 24px;
+	margin-top: 24px;
+`;
+const ButtonContinueWrapper = styled.div`
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+	margin: 24px 0;
+`;
 
 const TextDetails = () => (
 	<Container>
@@ -125,18 +141,25 @@ const PaymentDetails = () => (
 	<div>
 		<CartTotal>Select Your Payment Method</CartTotal>
 		<SelectPayment>
-			<div>
+			<ButtonWrapper>
 				<TextPayment>Online Banking</TextPayment>
 				<BankFlags src={flags} />
-			</div>
+			</ButtonWrapper>
 		</SelectPayment>
 		<SelectPayment>
-			<TextPayment>Card Payment</TextPayment>
-			<BankFlags src={cards} />
+			<ButtonWrapper>
+				<TextPayment>Card Payment</TextPayment>
+				<BankFlags src={cards} />
+			</ButtonWrapper>
 		</SelectPayment>
 		<SelectPayment>
-			<TextPayment>Apple Pay</TextPayment>
-			<BankFlags src={apple} />
+			<ButtonWrapper>
+				<TextPayment>Apple Pay</TextPayment>
+				<BankFlags src={apple} />
+			</ButtonWrapper>
+			<ButtonContinueWrapper>
+				<Button label={'Continue'} />
+			</ButtonContinueWrapper>
 		</SelectPayment>
 	</div>
 );
