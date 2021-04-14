@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import ButtonCard from './button';
 import Select from './select';
@@ -37,17 +38,29 @@ const Card = styled.div`
 	box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.05);
 `;
 
-const CardProduct = ({ title, price, image }) => {
+const CardProduct = ({ title, price, image, id, filterById }) => {
+	const [ size, setSize ] = useState('41');
+	const [ quantity, setQuantity ] = useState(1);
 	return (
 		<Card>
 			<Image src={image} />
 			<Detail>
 				<Title>{title}</Title>
-				<Select label="Size" values={[ '41', '42', '43', '44' ]} />
-				<Select label="Quantity" values={[ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]} />
+				<Select
+					label="Size"
+					values={[ '41', '42', '43', '44' ]}
+					onChange={(e) => setSize(e.target.value)}
+					value={size}
+				/>
+				<Select
+					label="Quantity"
+					values={[ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]}
+					onChange={(e) => setQuantity(e.target.value)}
+					value={quantity}
+				/>
 				<Price>${price}</Price>
 			</Detail>
-			<ButtonCard label={"Add to Card"} />
+			<ButtonCard label={'Add to Card'} filterById={filterById} id={id} size={size} quantity={quantity} />
 		</Card>
 	);
 };

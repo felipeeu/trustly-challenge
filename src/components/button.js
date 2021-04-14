@@ -13,8 +13,8 @@ const Button = styled.button`
 	color: #ffffff;
 `;
 
-const ButtonCard = ({label}) => {
-	return <Button>{label}</Button>;
+const ButtonCard = ({ label, filterById, id, size, quantity }) => {
+	return <Button onClick={() => filterById(id, size, quantity)}>{label}</Button>;
 };
 
 export default ButtonCard;

@@ -14,17 +14,15 @@ const Label = styled.span`
 	font-weight: normal;
 	font-size: 12px;
 	line-height: 18px;
-	/* or 147% */
-
 	color: #8d8d8d;
 `;
 
-const Select = ({ label, values }) => {
-	const [ valueSelect, setValue ] = useState(null);
+const Select = ({ label, values, onChange, value }) => {
+	
 	return (
 		<Fragment>
 			<Label>{label}</Label>
-			<SelectCard id="checkTag" value={valueSelect} onChange={(e) => setValue(e.target.value)}>
+			<SelectCard id="checkTag" value={value} onChange={onChange}>
 				{values.map((value, index) => {
 					return <option key={index}>{value}</option>;
 				})}

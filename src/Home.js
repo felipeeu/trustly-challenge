@@ -11,7 +11,7 @@ const styles = {
 		rowGap: '66px'
 	}
 };
-const Home = ({ products, setInputValue }) => (
+const Home = ({ products, setInputValue, filterById }) => (
 	<div style={styles.wrapper}>
 		<SearchInput setInputValue={setInputValue} />
 		<div style={styles.cardsWrapper}>
@@ -23,6 +23,8 @@ const Home = ({ products, setInputValue }) => (
 							title={product.description}
 							price={product.price}
 							image={product.thumbnailURL}
+							id={product.id}
+							filterById={filterById}
 						/>
 					);
 				})}
