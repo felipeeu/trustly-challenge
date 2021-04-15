@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import flags from '../../assets/images/bank-flags.png';
 import cards from '../../assets/images/card-flags.png';
@@ -77,7 +78,7 @@ const SelectPayment = styled.div`
 	margin-right: 30px;
 	margin-bottom: 15px;
 	background: #ffffff;
-	border: 1px solid #5dac50;
+	border: 1px solid ${(props) => (props.selected ? '#5dac50' : '#FFFFFF')};
 	border-radius: 10.8766px;
 	cursor: pointer;
 `;
@@ -135,26 +136,29 @@ const TextDetails = ({ data }) => (
 );
 
 const PaymentDetails = ({ quantity, price }) => {
+	const [ selected, setSelected ] = useState('bank');
 	const amount = parseInt(quantity) * parseFloat(price);
 	const parsedAmount = amount.toFixed(2);
+
+	console.log('selected: ', selected);
 
 	return (
 		<div>
 			<CartTotal>Select Your Payment Method</CartTotal>
-			<SelectPayment>
-				<ButtonWrapper>
+			<SelectPayment selected={selected === 'bank'}>
+				<ButtonWrapper onClick={() => setSelected('bank')}>
 					<TextPayment>Online Banking</TextPayment>
 					<BankFlags src={flags} />
 				</ButtonWrapper>
 			</SelectPayment>
-			<SelectPayment>
-				<ButtonWrapper>
+			<SelectPayment selected={selected === 'card'}>
+				<ButtonWrapper onClick={() => setSelected('card')}>
 					<TextPayment>Card Payment</TextPayment>
 					<BankFlags src={cards} />
 				</ButtonWrapper>
 			</SelectPayment>
-			<SelectPayment>
-				<ButtonWrapper>
+			<SelectPayment selected={selected === 'apple'}>
+				<ButtonWrapper onClick={() => setSelected('apple')}>
 					<TextPayment>Apple Pay</TextPayment>
 					<BankFlags src={apple} />
 				</ButtonWrapper>
