@@ -6,13 +6,13 @@ import Header from './components/header';
 import Checkout from './Checkout';
 import { Route, useLocation } from 'react-router-dom';
 
-function App(props) {
+function App() {
 	const [ inputValue, setInputValue ] = useState('');
 	const [ data, setData ] = useState([]);
 	const [ checkoutData, setCheckoutData ] = useState({});
 	const location = useLocation();
 
-	console.log(checkoutData);
+	
 	const filterById = (id, size, quantity) => {
 		const checkoutInfo = data && data.find((item) => item.id === id);
 		setCheckoutData({ quantity, size, ...checkoutInfo });

@@ -134,38 +134,43 @@ const TextDetails = ({ data }) => (
 	</Container>
 );
 
-const PaymentDetails = () => (
-	<div>
-		<CartTotal>Select Your Payment Method</CartTotal>
-		<SelectPayment>
-			<ButtonWrapper>
-				<TextPayment>Online Banking</TextPayment>
-				<BankFlags src={flags} />
-			</ButtonWrapper>
-		</SelectPayment>
-		<SelectPayment>
-			<ButtonWrapper>
-				<TextPayment>Card Payment</TextPayment>
-				<BankFlags src={cards} />
-			</ButtonWrapper>
-		</SelectPayment>
-		<SelectPayment>
-			<ButtonWrapper>
-				<TextPayment>Apple Pay</TextPayment>
-				<BankFlags src={apple} />
-			</ButtonWrapper>
-			<ButtonContinueWrapper>
-				<Button label={'Continue'} />
-			</ButtonContinueWrapper>
-		</SelectPayment>
-	</div>
-);
+const PaymentDetails = ({ quantity, price }) => {
+	const amount = parseInt(quantity) * parseFloat(price);
+	const parsedAmount = amount.toFixed(2);
+
+	return (
+		<div>
+			<CartTotal>Select Your Payment Method</CartTotal>
+			<SelectPayment>
+				<ButtonWrapper>
+					<TextPayment>Online Banking</TextPayment>
+					<BankFlags src={flags} />
+				</ButtonWrapper>
+			</SelectPayment>
+			<SelectPayment>
+				<ButtonWrapper>
+					<TextPayment>Card Payment</TextPayment>
+					<BankFlags src={cards} />
+				</ButtonWrapper>
+			</SelectPayment>
+			<SelectPayment>
+				<ButtonWrapper>
+					<TextPayment>Apple Pay</TextPayment>
+					<BankFlags src={apple} />
+				</ButtonWrapper>
+				<ButtonContinueWrapper>
+					<Button label={'Continue'} amount={parsedAmount} />
+				</ButtonContinueWrapper>
+			</SelectPayment>
+		</div>
+	);
+};
 
 const DetailsCheckout = ({ checkoutData }) => {
 	return (
 		<Details>
 			<TextDetails data={checkoutData} />
-			<PaymentDetails />
+			<PaymentDetails quantity={checkoutData.quantity} price={checkoutData.price} />
 		</Details>
 	);
 };
