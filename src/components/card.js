@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import ButtonCard from './button';
 import Select from './select';
+import { useHistory } from 'react-router-dom';
 
 const Image = styled.img`
 	height: 171px;
@@ -41,6 +42,13 @@ const Card = styled.div`
 const CardProduct = ({ title, price, image, id, filterById }) => {
 	const [ size, setSize ] = useState('41');
 	const [ quantity, setQuantity ] = useState(1);
+	const history = useHistory();
+
+	const addToCart = () => {
+		history.push('/checkout');
+		filterById(id, size, quantity);
+	};
+
 	return (
 		<Card>
 			<Image src={image} />
@@ -60,7 +68,7 @@ const CardProduct = ({ title, price, image, id, filterById }) => {
 				/>
 				<Price>${price}</Price>
 			</Detail>
-			<ButtonCard label={'Add to Card'} filterById={filterById} id={id} size={size} quantity={quantity} />
+			<ButtonCard label={'Add to Card'} onClick={addToCart} />
 		</Card>
 	);
 };
