@@ -1,31 +1,31 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import styled from 'styled-components';
 import flags from '../../assets/images/bank-flags.png';
 import cards from '../../assets/images/card-flags.png';
 import apple from '../../assets/images/apple-flag.png';
 import Button from './button';
 
-const Details = styled.div`
+export const Details = styled.div`
 	min-width: 730px;
 	border-radius: 11px;
 	background: #f7f7f7;
 `;
-const Container = styled.div`
+export const Container = styled.div`
 	display: flex;
 	justify-content: space-between;
 	margin-top: 29.63px;
 `;
 
-const Total = styled.div`
+export const Total = styled.div`
 	text-align: left;
 	margin-left: 38px;
 `;
 
-const CartTotal = styled.p`
+export const CartTotal = styled.p`
 	font-size: 22px;
 	color: #000000;
 `;
-const Title = styled.p`
+export const Title = styled.p`
 	font-size: 16px;
 	line-height: 20px;
 	color: #000000;
@@ -102,16 +102,36 @@ const ButtonContinue = styled(Button)`
 	right:217px;
 `;
 
-const TextDetails = ({ data }) => (
-	<Container>
-		<Total>
-			<CartTotal>Cart Total</CartTotal>
+export const ProductDetails = ({ data }) => {
+	return (
+		<Fragment>
 			<Title>{data.description}</Title>
 			<Description>x {data.quantity}</Description>
 			<Description> {`  ${data.color}  `}</Description>
 			<Description> Size{`  ${data.size}`}</Description>
 			<br />
 			<Description>Item{` #${data.id}`}</Description>
+		</Fragment>
+	);
+};
+
+export const PriceDetails = ({ data }) => {
+	return (
+		<CostWrapper>
+			<CostDivider>
+				<TotalCost>Total Cost</TotalCost>
+				<DeliveryDetails>Delivery included</DeliveryDetails>
+			</CostDivider>
+			<Price>${parseInt(data.quantity) * parseFloat(data.price)}</Price>
+		</CostWrapper>
+	);
+};
+
+const TextDetails = ({ data }) => (
+	<Container>
+		<Total>
+			<CartTotal>Cart Total</CartTotal>
+			<ProductDetails data={data} />
 		</Total>
 		<DeliveryWraper>
 			<Delivery>Delivery Details</Delivery>
@@ -121,13 +141,7 @@ const TextDetails = ({ data }) => (
 			<br />
 			<DeliveryDetails>Address: rels st ,423900234</DeliveryDetails>
 			<br />
-			<CostWrapper>
-				<CostDivider>
-					<TotalCost>Total Cost</TotalCost>
-					<DeliveryDetails>Delivery included</DeliveryDetails>
-				</CostDivider>
-				<Price>${parseInt(data.quantity) * parseFloat(data.price)}</Price>
-			</CostWrapper>
+			<PriceDetails data={data} />
 		</DeliveryWraper>
 	</Container>
 );

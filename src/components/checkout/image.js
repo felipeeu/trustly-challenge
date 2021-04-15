@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Image = styled.img`
-	max-width: 630px;
+	max-width: 533px;
 	height: auto;
 	border-radius: 11px;
 	object-fit: cover;

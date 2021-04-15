@@ -5,13 +5,13 @@ import Home from './Home.js';
 import HomeHeader from './components/header';
 import CheckoutHeader from './components/checkout/header';
 import Checkout from './Checkout';
-import { Route, useLocation } from 'react-router-dom';
+import Confirmation from './Confirmation';
+import { Route } from 'react-router-dom';
 
 function App() {
 	const [ inputValue, setInputValue ] = useState('');
 	const [ data, setData ] = useState([]);
 	const [ checkoutData, setCheckoutData ] = useState({});
-	const location = useLocation();
 
 	const filterById = (id, size, quantity) => {
 		const checkoutInfo = data && data.find((item) => item.id === id);
@@ -32,6 +32,10 @@ function App() {
 			<Route path="/checkout">
 				<CheckoutHeader label={'Checkout'} />
 				<Checkout checkoutData={checkoutData} />
+			</Route>
+			<Route path="/confirmation">
+				<CheckoutHeader label={'Review and Confirmation'} />
+				<Confirmation checkoutData={checkoutData} />
 			</Route>
 		</div>
 	);
