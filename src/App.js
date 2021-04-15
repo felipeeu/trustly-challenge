@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { getProducts } from './api';
 import Home from './Home.js';
-import Header from './components/header';
+import HomeHeader from './components/header';
+import CheckoutHeader from './components/checkout/header';
 import Checkout from './Checkout';
 import { Route, useLocation } from 'react-router-dom';
 
@@ -12,7 +13,6 @@ function App() {
 	const [ checkoutData, setCheckoutData ] = useState({});
 	const location = useLocation();
 
-	
 	const filterById = (id, size, quantity) => {
 		const checkoutInfo = data && data.find((item) => item.id === id);
 		setCheckoutData({ quantity, size, ...checkoutInfo });
@@ -25,11 +25,12 @@ function App() {
 	useEffect(() => {}, [ inputValue ]);
 	return (
 		<div className="App">
-			<Header label={location.pathname === '/checkout' ? 'Checkout' : 'Sneakers'} />
 			<Route exact path="/">
+				<HomeHeader label={'Sneakers'} />
 				<Home products={data} setInputValue={setInputValue} filterById={filterById} />
 			</Route>
 			<Route path="/checkout">
+				<CheckoutHeader label={'Checkout'} />
 				<Checkout checkoutData={checkoutData} />
 			</Route>
 		</div>

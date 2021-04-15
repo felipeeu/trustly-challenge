@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-const HomeHeader = styled.div`
+export const Header = styled.div`
 	width: 100vw;
 	height: 87px;
 	background: #f1f1f1;
 `;
 
-const Header = ({label}) => {
-	return <HomeHeader>{label}</HomeHeader>;
+const HomeHeader = ({ label }) => {
+	return <Header>{label}</Header>;
 };
 
-export default Header;
+export default HomeHeader;
