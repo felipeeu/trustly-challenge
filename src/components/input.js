@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Search = styled.input`
 	align-self: center;
-	width: 1100px;
+	min-width: 700px;
 	height: 31px;
 	font-style: normal;
 	font-weight: 300;
@@ -11,6 +11,7 @@ const Search = styled.input`
 	text-align: center;
 	color: #a8a8a8;
 	border: 0px solid;
+	outline: none;
 `;
 const Icon = styled.div`
 	width:30px;

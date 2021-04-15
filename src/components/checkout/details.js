@@ -6,9 +6,9 @@ import apple from '../../assets/images/apple-flag.png';
 import Button from './button';
 
 const Details = styled.div`
-	min-width: 575px;
-	background: #f7f7f7;
+	min-width: 730px;
 	border-radius: 11px;
+	background: #f7f7f7;
 `;
 const Container = styled.div`
 	display: flex;
@@ -35,7 +35,6 @@ const Description = styled.span`
 	font-size: 16px;
 	line-height: 25px;
 	color: #a5a5a5;
-	padding-left: 10px;
 `;
 
 const DeliveryWraper = styled.div`text-align: left;`;
@@ -98,11 +97,9 @@ const BankFlags = styled.img`
 	margin-right: 24px;
 	margin-top: 24px;
 `;
-const ButtonContinueWrapper = styled.div`
-	display: flex;
-	justify-content: flex-end;
-	width: 100%;
-	margin: 24px 0;
+const ButtonContinue = styled(Button)`
+	position :absolute;
+	right:217px;
 `;
 
 const TextDetails = ({ data }) => (
@@ -110,11 +107,11 @@ const TextDetails = ({ data }) => (
 		<Total>
 			<CartTotal>Cart Total</CartTotal>
 			<Title>{data.description}</Title>
-			<Description>x{data.quantity}</Description>
-			<Description>{data.color}</Description>
-			<Description>Size {data.size}</Description>
+			<Description>x {data.quantity}</Description>
+			<Description> {`  ${data.color}  `}</Description>
+			<Description> Size{`  ${data.size}`}</Description>
 			<br />
-			<Description>Item {`#${data.id}`}</Description>
+			<Description>Item{` #${data.id}`}</Description>
 		</Total>
 		<DeliveryWraper>
 			<Delivery>Delivery Details</Delivery>
@@ -140,8 +137,6 @@ const PaymentDetails = ({ quantity, price }) => {
 	const amount = parseInt(quantity) * parseFloat(price);
 	const parsedAmount = amount.toFixed(2);
 
-
-
 	return (
 		<div>
 			<CartTotal>Select Your Payment Method</CartTotal>
@@ -162,10 +157,8 @@ const PaymentDetails = ({ quantity, price }) => {
 					<TextPayment>Apple Pay</TextPayment>
 					<BankFlags src={apple} />
 				</ButtonWrapper>
-				<ButtonContinueWrapper>
-					<Button label={'Continue'} amount={parsedAmount} selected={selected === "bank"} />
-				</ButtonContinueWrapper>
 			</SelectPayment>
+			<ButtonContinue label={'Continue'} amount={parsedAmount} selected={selected === 'bank'} />
 		</div>
 	);
 };
