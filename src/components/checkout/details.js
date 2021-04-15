@@ -6,7 +6,7 @@ import apple from '../../assets/images/apple-flag.png';
 import Button from './button';
 
 const Details = styled.div`
-	min-width: 730px;
+	min-width: 575px;
 	background: #f7f7f7;
 	border-radius: 11px;
 `;
@@ -140,7 +140,7 @@ const PaymentDetails = ({ quantity, price }) => {
 	const amount = parseInt(quantity) * parseFloat(price);
 	const parsedAmount = amount.toFixed(2);
 
-	console.log('selected: ', selected);
+
 
 	return (
 		<div>
@@ -163,7 +163,7 @@ const PaymentDetails = ({ quantity, price }) => {
 					<BankFlags src={apple} />
 				</ButtonWrapper>
 				<ButtonContinueWrapper>
-					<Button label={'Continue'} amount={parsedAmount} />
+					<Button label={'Continue'} amount={parsedAmount} selected={selected === "bank"} />
 				</ButtonContinueWrapper>
 			</SelectPayment>
 		</div>
