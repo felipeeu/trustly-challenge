@@ -21,7 +21,7 @@ const CheckoutHeader = ({ label, routeBack }) => {
 	return (
 		<Header>
 			<BackButton onClick={() => history.push(routeBack)}>
-				<i class="fa fa-arrow-left" /> Back{' '}
+				<i className="fa fa-arrow-left" /> Back{' '}
 			</BackButton>
 			{label}
 			<Avatar src={avatar} />

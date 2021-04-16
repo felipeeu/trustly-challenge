@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import styled from 'styled-components';
 import DetailsCheckout from './components/checkout/details';
 import DetailsConfirmation from './components/confirmation/details';
@@ -10,6 +10,8 @@ import { addPanelListener } from './add-listener';
 const Wrapper = styled.div`
 	display: flex;
 	justify-content: space-evenly;
+	margin-top: 47px;
+	margin-bottom: 132px;
 `;
 
 const Checkout = ({ checkoutData, child }) => {

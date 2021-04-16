@@ -4,7 +4,7 @@ import { Details, ProductDetails, PriceDetails, CartTotal, Total, Title } from '
 import greenBank from '../../assets/images/green-bank-icon.png';
 
 const Wrapper = styled.div``;
-// justify-content: space-evenly;
+
 const Row = styled.div`
 	display: flex;
 	justify-content: space-between;

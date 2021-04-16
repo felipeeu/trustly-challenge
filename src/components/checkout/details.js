@@ -73,8 +73,6 @@ const Price = styled.span`
 
 const SelectPayment = styled.div`
 	height: 75px;
-	margin-left: 38px;
-	margin-right: 30px;
 	margin-bottom: 15px;
 	background: #ffffff;
 	border: 1px solid ${(props) => (props.selected ? '#5dac50' : '#FFFFFF')};
@@ -84,6 +82,11 @@ const SelectPayment = styled.div`
 const ButtonWrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
+`;
+const ButtonBankingWrapper = styled(ButtonWrapper)`margin-top: -20px;`;
+const ButtonContinueWrapper = styled.div`
+	display: flex;
+	justify-content: flex-end;
 `;
 const TextPayment = styled.span`
 	margin-left: 30px;
@@ -114,6 +117,16 @@ const DiscountLabel = styled.div`
 	line-height: 17px;
 	text-align: center;
 	color: #9e7d27;
+`;
+
+const TitlePaymentMethod = styled(CartTotal)`
+	text-align:left;
+
+`;
+const PaymentWrapper = styled.div`
+	margin-left: 38px;
+	margin-right: 30px;
+	padding: 20px 0;
 `;
 
 export const ProductDetails = ({ data }) => {
@@ -166,14 +179,14 @@ const PaymentDetails = ({ quantity, price }) => {
 	const parsedAmount = amount.toFixed(2);
 
 	return (
-		<div>
-			<CartTotal>Select Your Payment Method</CartTotal>
+		<PaymentWrapper>
+			<TitlePaymentMethod>Select Your Payment Method</TitlePaymentMethod>
 			<SelectPayment selected={selected === 'bank'}>
-				<ButtonWrapper onClick={() => setSelected('bank')}>
-					<DiscountLabel>Save $10</DiscountLabel>
+				<DiscountLabel>Save $10</DiscountLabel>
+				<ButtonBankingWrapper onClick={() => setSelected('bank')}>
 					<TextPayment>Online Banking</TextPayment>
 					<BankFlags src={flags} />
-				</ButtonWrapper>
+				</ButtonBankingWrapper>
 			</SelectPayment>
 			<SelectPayment selected={selected === 'card'}>
 				<ButtonWrapper onClick={() => setSelected('card')}>
@@ -187,8 +200,10 @@ const PaymentDetails = ({ quantity, price }) => {
 					<BankFlags src={apple} />
 				</ButtonWrapper>
 			</SelectPayment>
-			<ButtonContinue label={'Continue'} amount={parsedAmount} selected={selected === 'bank'} />
-		</div>
+			<ButtonContinueWrapper>
+				<ButtonContinue label={'Continue'} amount={parsedAmount} selected={selected === 'bank'} />
+			</ButtonContinueWrapper>
+		</PaymentWrapper>
 	);
 };
 

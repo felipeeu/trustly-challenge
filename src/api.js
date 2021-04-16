@@ -6,6 +6,6 @@ export const getProducts = async () => {
 		const response = await axios.get(API);
 		if (response) return response;
 	} catch (exception) {
-		throw `Failed to get products. ${exception.toString()}`;
+		throw exception;
 	}
 };
