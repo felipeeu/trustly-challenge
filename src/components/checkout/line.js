@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useLocation } from 'react-router-dom';
 
 const Line = styled.span`
 	display: flex;
@@ -12,21 +13,21 @@ const Ball = styled.div`
 	border-radius: 50%;
 	height: 15px;
 	width: 15px;
-	background: #61cb46;
+	background: ${(props) => (props.achieved ? '#61CB46' : '#E8E8E8')};
 `;
 const Stage = styled.p`
 	font-family: Arial;
 	font-size: 16px;
 	line-height: 18px;
 	text-align: center;
-  color: #000000;
-  width:40px;
+	color: #000000;
+	width: 40px;
 `;
 
-const BallContent = ({ label }) => {
+const BallContent = ({ label, achieved }) => {
 	return (
 		<BallWrapper>
-			<Ball />
+			<Ball achieved={achieved} />
 			<Stage>{label}</Stage>
 		</BallWrapper>
 	);
@@ -34,13 +35,15 @@ const BallContent = ({ label }) => {
 
 const Wrapper = styled.div``;
 
-const LineCheckout = ({ label }) => {
+const LineCheckout = () => {
+	const location = useLocation();
+
 	return (
 		<Wrapper>
 			<Line>
-				<BallContent label={'Cart'} />
-				<BallContent label={'Payment options'} />
-				<BallContent label={'Receipt'} />
+				<BallContent achieved={true} label={'Cart'} />
+				<BallContent achieved={true} label={'Payment options'} />
+				<BallContent achieved={location.hash.length > 0} label={'Receipt'} />
 			</Line>
 		</Wrapper>
 	);

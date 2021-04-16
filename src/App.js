@@ -5,7 +5,8 @@ import Home from './Home.js';
 import HomeHeader from './components/header';
 import CheckoutHeader from './components/checkout/header';
 import Checkout from './Checkout';
-import Confirmation from './Confirmation';
+
+
 import { Route } from 'react-router-dom';
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
 		setCheckoutData({ quantity, size, ...checkoutInfo });
 	};
 	const fetchProducts = () => getProducts().then((res) => setData(res.data.results));
-	
+
 	useEffect(() => {
 		fetchProducts();
 	}, []);
@@ -39,11 +40,11 @@ function App() {
 			</Route>
 			<Route path="/checkout">
 				<CheckoutHeader label={'Checkout'} />
-				<Checkout checkoutData={checkoutData} />
+				<Checkout checkoutData={checkoutData} child={"checkout"} />
 			</Route>
 			<Route path="/confirmation">
 				<CheckoutHeader label={'Review and Confirmation'} />
-				<Confirmation checkoutData={checkoutData} />
+				<Checkout checkoutData={checkoutData} child={"confirmation"} />
 			</Route>
 		</div>
 	);
