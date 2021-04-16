@@ -101,6 +101,20 @@ const ButtonContinue = styled(Button)`
 	position :absolute;
 	right:217px;
 `;
+const DiscountLabel = styled.div`
+	width: 77px;
+	height: 18px;
+	position: relative;
+	left: 32px;
+	top: -8px;
+	background: #ffcc00;
+	border-radius: 2px;
+	font-weight: bold;
+	font-size: 9.77px;
+	line-height: 17px;
+	text-align: center;
+	color: #9e7d27;
+`;
 
 export const ProductDetails = ({ data }) => {
 	return (
@@ -156,6 +170,7 @@ const PaymentDetails = ({ quantity, price }) => {
 			<CartTotal>Select Your Payment Method</CartTotal>
 			<SelectPayment selected={selected === 'bank'}>
 				<ButtonWrapper onClick={() => setSelected('bank')}>
+					<DiscountLabel>Save $10</DiscountLabel>
 					<TextPayment>Online Banking</TextPayment>
 					<BankFlags src={flags} />
 				</ButtonWrapper>
