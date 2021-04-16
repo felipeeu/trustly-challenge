@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Header } from '../header';
 import { useHistory } from 'react-router-dom';
+import { Avatar } from '../header';
+import avatar from '../../assets/images/avatar.png';
 
 const BackButton = styled.button`
 	position: absolute;
@@ -13,14 +15,16 @@ const BackButton = styled.button`
 	outline: none;
 `;
 
-const CheckoutHeader = ({ label }) => {
+const CheckoutHeader = ({ label, routeBack }) => {
 	const history = useHistory();
+
 	return (
 		<Header>
-			<BackButton onClick={() => history.push('/')}>
+			<BackButton onClick={() => history.push(routeBack)}>
 				<i class="fa fa-arrow-left" /> Back{' '}
 			</BackButton>
 			{label}
+			<Avatar src={avatar} />
 		</Header>
 	);
 };

@@ -6,7 +6,6 @@ import HomeHeader from './components/header';
 import CheckoutHeader from './components/checkout/header';
 import Checkout from './Checkout';
 
-
 import { Route } from 'react-router-dom';
 
 function App() {
@@ -39,12 +38,12 @@ function App() {
 				<Home products={data} setInputValue={setInputValue} filterById={filterById} />
 			</Route>
 			<Route path="/checkout">
-				<CheckoutHeader label={'Checkout'} />
-				<Checkout checkoutData={checkoutData} child={"checkout"} />
+				<CheckoutHeader label={'Checkout'} routeBack={'/'} />
+				<Checkout checkoutData={checkoutData} child={'checkout'} />
 			</Route>
 			<Route path="/confirmation">
-				<CheckoutHeader label={'Review and Confirmation'} />
-				<Checkout checkoutData={checkoutData} child={"confirmation"} />
+				<CheckoutHeader label={'Review and Confirmation'} routeBack={'/checkout'} />
+				<Checkout checkoutData={checkoutData} child={'confirmation'} />
 			</Route>
 		</div>
 	);
