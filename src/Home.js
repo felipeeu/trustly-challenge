@@ -15,7 +15,10 @@ const Home = ({ products, setInputValue, filterById }) => (
 	<div style={styles.wrapper}>
 		<SearchInput setInputValue={setInputValue} />
 		<div style={styles.cardsWrapper}>
-			{products &&
+			{products.length === 0 ? (
+				<div>No Sneakers Found</div>
+			) : (
+				products &&
 				products.map((product, index) => {
 					return (
 						<CardProduct
@@ -27,7 +30,8 @@ const Home = ({ products, setInputValue, filterById }) => (
 							filterById={filterById}
 						/>
 					);
-				})}
+				})
+			)}
 		</div>
 	</div>
 );

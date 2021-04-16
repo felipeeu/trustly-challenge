@@ -17,12 +17,20 @@ function App() {
 		const checkoutInfo = data && data.find((item) => item.id === id);
 		setCheckoutData({ quantity, size, ...checkoutInfo });
 	};
-
+	const fetchProducts = () => getProducts().then((res) => setData(res.data.results));
+	
 	useEffect(() => {
-		getProducts().then((res) => setData(res.data.results));
+		fetchProducts();
 	}, []);
 
-	useEffect(() => {}, [ inputValue ]);
+	useEffect(
+		() => {
+			inputValue === ''
+				? fetchProducts()
+				: setData(data.filter((item) => item.description.toLowerCase().includes(inputValue.toLowerCase())));
+		},
+		[ inputValue ]
+	);
 	return (
 		<div className="App">
 			<Route exact path="/">
