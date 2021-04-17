@@ -14,7 +14,10 @@ const Search = styled.input`
 	outline: none;
 `;
 const Icon = styled.div`
-	width:30px;
+	width: 30px;
+	position: relative;
+	top: 20px;
+	right: 520px;
 `;
 const Line = styled.span`
 	width: 1102px;
@@ -40,7 +43,9 @@ const IconSvg = () => {
 const SearchInput = ({ setInputValue }) => {
 	return (
 		<Wrapper>
-			<Icon><IconSvg/></Icon>
+			<Icon>
+				<i class="fa fa-search" />
+			</Icon>
 			<Search placeholder="Search for your sneakers" onChange={(e) => setInputValue(e.target.value)} />
 			<Line />
 		</Wrapper>
