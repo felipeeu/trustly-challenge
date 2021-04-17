@@ -23,7 +23,14 @@ const Stage = styled.p`
 	color: #000000;
 	width: 40px;
 `;
-
+const Bond = styled.span`
+	background: #e8e8e8;
+	width: 35em;
+	height: 2px;
+	position: relative;
+	left: -10px;
+	top: 6px;
+`;
 const BallContent = ({ label, achieved }) => {
 	return (
 		<BallWrapper>
@@ -42,7 +49,9 @@ const LineCheckout = () => {
 		<Wrapper>
 			<Line>
 				<BallContent achieved={true} label={'Cart'} />
+				<Bond />
 				<BallContent achieved={true} label={'Payment options'} />
+				<Bond />
 				<BallContent achieved={location.hash.length > 0} label={'Receipt'} />
 			</Line>
 		</Wrapper>
