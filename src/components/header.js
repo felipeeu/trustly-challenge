@@ -5,6 +5,9 @@ export const Header = styled.div`
 	width: 100vw;
 	height: 87px;
 	background: #f1f1f1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `;
 export const Avatar = styled.img`
 	position: absolute;
@@ -12,13 +15,21 @@ export const Avatar = styled.img`
 	width: 53px;
 	height: auto;
 	clip-path: circle(25px at center);
-	margin-top: 20px;
+`;
+
+export const HeaderText = styled.span`
+	font-family: Arial;
+	font-weight: normal;
+	font-size: 26px;
+	line-height: 30px;
+	text-align: center;
+	color: #000000;
 `;
 
 const HomeHeader = ({ label }) => {
 	return (
 		<Header>
-			{label}
+			<HeaderText>{label}</HeaderText>
 			<Avatar src={avatar} />
 		</Header>
 	);

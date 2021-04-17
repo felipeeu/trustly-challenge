@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Header } from '../header';
 import { useHistory } from 'react-router-dom';
-import { Avatar } from '../header';
+import { Avatar, HeaderText } from '../header';
 import avatar from '../../assets/images/avatar.png';
 
 const BackButton = styled.button`
@@ -23,7 +23,7 @@ const CheckoutHeader = ({ label, routeBack }) => {
 			<BackButton onClick={() => history.push(routeBack)}>
 				<i className="fa fa-arrow-left" /> Back{' '}
 			</BackButton>
-			{label}
+			<HeaderText>{label}</HeaderText>
 			<Avatar src={avatar} />
 		</Header>
 	);
