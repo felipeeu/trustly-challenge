@@ -1,5 +1,5 @@
 import axios from 'axios';
-export const API = 'https://voliveira.s3-sa-east-1.amazonaws.com/sneakers/index.json';
+export const API = 'http://voliveira.s3-sa-east-1.amazonaws.com/sneakers/index.json';
 
 export const getProducts = async () => {
 	try {

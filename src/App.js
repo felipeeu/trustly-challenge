@@ -29,7 +29,7 @@ function App() {
 				? fetchProducts()
 				: setData(data.filter((item) => item.description.toLowerCase().includes(inputValue.toLowerCase())));
 		},
-		[ inputValue, data ]
+		[ inputValue]
 	);
 	return (
 		<div className="App">
